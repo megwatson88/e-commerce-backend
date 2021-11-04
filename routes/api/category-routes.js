@@ -7,16 +7,16 @@ router.get('/', (req, res) => {
   Category.findAll({
     include: [Product]
   })
-  .then((categories) => res.json(categories))
-  .catch((err) => res.status(500), json(err));
+    .then((categories) => res.json(categories))
+    .catch((err) => res.status(500), json(err));
 });
 
 router.get('/:id', (req, res) => {
   Category.findOne({
     include: [Product]
   })
-  .then((categories) => res.json(categories))
-  .catch((err) => res.status(400), json(err));
+    .then((categories) => res.json(categories))
+    .catch((err) => res.status(400), json(err));
   // find one category by its `id` value
   // be sure to include its associated Products
 });
@@ -24,8 +24,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create(req.body)
-  .then((category) => res.json(category))
-  .catch((err) => res.status(400), json(err));
+    .then((category) => res.json(category))
+    .catch((err) => res.status(400), json(err));
 });
 
 router.put('/:id', (req, res) => {
@@ -35,9 +35,9 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then((category) => res.status(200).json(category))
-  .catch((err) => res.status(400), json(err));
-} );
+    .then((category) => res.status(200).json(category))
+    .catch((err) => res.status(400), json(err));
+});
 
 
 router.delete('/:id', (req, res) => {
@@ -46,9 +46,9 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-})
-.then((category) => res.status(200).json(category))
-.catch((err) => res.status(400), json(err));
+  })
+    .then((category) => res.status(200).json(category))
+    .catch((err) => res.status(400), json(err));
 });
 
 module.exports = router;
