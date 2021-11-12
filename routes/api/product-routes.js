@@ -15,9 +15,8 @@ router.get('/', (req, res) => {
         through: ProductTag
       }
     ]
-      .then(product => res.json(product))
-      .catch(err => res.status(400).json(err))
-  });
+  }).then(product => res.json(product))
+    .catch(err => res.status(400).json(err));
 });
 
 // get one product
@@ -36,8 +35,8 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-  .then(product => res.json(product))
-  .catch(err => res.status(400).json(err));
+    .then(product => res.json(product))
+    .catch(err => res.status(400).json(err));
 });
 
 // create new product
@@ -120,13 +119,14 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id,
     }
-})
-  .then((product) => res.json(product))
-  .catch((err) => {
-    console.log(err);
-    res.status(400).json(err);
-  }
-)}  
+  })
+    .then((product) => res.json(product))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    }
+    )
+}
 );
 
 module.exports = router;

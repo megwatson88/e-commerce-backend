@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       through: ProductTag
     }]
   })
-  .then((tag) => res.status().json(tag))
+  .then((tag) => res.status(200).json(tag))
   .catch((err) => res.status(500).json(err));
 });
 
